@@ -10,9 +10,11 @@ const start = async ()=>{
         await Product.deleteMany()
         await Product.create(dataProduct)
         console.log('Data implemented :) !')
+        process.exit(0)
     }
     catch (err){
         console.log(err)
+        process.exit(1 )
     }
 }
 
