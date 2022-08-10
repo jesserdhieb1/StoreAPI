@@ -4,6 +4,7 @@ const app = express()
 const connectDB = require('./db/connect')
 const notFoundMiddleware=require('./middleware/not-found')
 const errorHandlerMiddleware=require('./middleware/error-handler')
+const productsRouter = require('./routes/products')
 
 
 app.use(errorHandlerMiddleware)
@@ -12,6 +13,8 @@ app.use(express.json())
 app.get('/',(req,res)=>{
     res.status(200).send("<h1>Store API</h1> <a href ='/api/v1/products'>send</a>")
 })
+
+app.use('/api/v1/products',productsRouter)
 
 
 app.use(notFoundMiddleware)
